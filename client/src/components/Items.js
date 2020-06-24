@@ -28,7 +28,7 @@ export default function Item(props) {
             <div className="list-group list-group-flush">
               <div className="list-group-item">
                 <div className="row">
-                  {props.event && props.events.datas && props.events.datas.members.map((item, index) => (
+                  {props.events && props.events.datas && props.events.datas.members.map((item, index) => (
                     <div key={index} className="col-md-auto">
                       <div className="media">
                         <div className="media-body">

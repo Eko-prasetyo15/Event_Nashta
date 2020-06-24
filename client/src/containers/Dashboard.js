@@ -10,16 +10,35 @@ import Pagination from "../components/Pagination"
 class Dashboard extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      search: '',
+      page: 1,
+      limit: 2,
+    }
   }
   componentDidMount() {
     this.props.loadEvent();
   }
   render() {
-    const nodes = this.props.events.map((item, index) => {
-      console.log(item, 'ini item');
+    const { page, limit } = this.state
+    const search = this.state.search.trim().toLowerCase()
+    const dataNew = (this.props.events || []).filter(
+      (item) =>
+        item.datas.title.toLowerCase().includes(search) ||
+        item.datas.location.toLowerCase().includes(search) ||
+        item.datas.date.toLowerCase().includes(search) ||
+        item.datas.members.join().toLowerCase().includes(search)
+    )
 
+    const total = dataNew.length
+
+    const dataNewSplice = dataNew.slice(((page - 1) * limit), ((page - 1) * limit) + limit)
+    console.log(dataNew, dataNew.slice(1, 2), dataNewSplice, ((page - 1) * limit), limit);
+
+    const nodes = dataNewSplice.map((item, index) => {
       return (
         <Event
+          key={`${index}_`}
           id={item.datas && item.datas.id} index={index + 1}
           title={item.datas && item.datas.title}
           location={item.datas && item.datas.location}
@@ -38,7 +57,7 @@ class Dashboard extends Component {
             <div className="card-body">
               <form>
                 <div className="form-group">
-                  <EventSearch />
+                  <EventSearch updateSearch={(val) => this.setState({ search: val, page: 1 })} search={search} />
                 </div>
               </form>
               <div className="table-responsive">
@@ -58,7 +77,7 @@ class Dashboard extends Component {
                     {nodes}
                   </tbody>
                 </table>
-                <Pagination />
+                <Pagination updatePage={(page) => this.setState({ page })} limit={limit} currentPage={page} total={total} />
 
               </div>
             </div>

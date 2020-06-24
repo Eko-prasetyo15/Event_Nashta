@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
+// import ReactDOM from "react-dom";
 
 
 export default class Pgination extends Component {
@@ -16,18 +16,23 @@ export default class Pgination extends Component {
   }
 
   render() {
+    let pageNum = []
+    for (let i = 0; i < Math.ceil(this.props.total / this.props.limit); i++) {
+      pageNum.push(<li key={i} onClick={() => this.props.updatePage(i + 1)} className="page-item">
+        <a className="page-link" href="#">{i + 1}</a>
+      </li>)
+    }
+
     return (
       <div className="container">
         <nav aria-label="Page navigation example">
-          <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-              <a class="page-link" href="#" tabindex="-1">Previous</a>
+          <ul className="pagination justify-content-center">
+            <li className="page-item disabled">
+              <a className="page-link" href="#" tabIndex="-1">Previous</a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#">Next</a>
+            {pageNum}
+            <li className="page-item">
+              <a className="page-link" href="#">Next</a>
             </li>
           </ul>
         </nav>
