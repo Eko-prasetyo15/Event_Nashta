@@ -6,7 +6,7 @@ const events = (state = [], action) => {
         item.sent = true;
         return item;
       });
-      case "LOAD_EVENT_FAILURE":
+    case "LOAD_EVENT_FAILURE":
     default:
       return state;
 
@@ -28,7 +28,7 @@ const events = (state = [], action) => {
 
     case "POST_EVENT_SUCCESS":
       return state.map((item) => {
-        if (item.id === action.event.id) {
+        if (item.id === action.event && action.event.id) {
           item.sent = true;
         }
         return item;
@@ -41,21 +41,21 @@ const events = (state = [], action) => {
         }
         return item;
       });
-      case "SEARCH_EVENT":
-        return state.map((item) => ({
-            ...item,
-            isVisible: (item.datas && item.datas.title.toLowerCase().includes(action.value) || item.datas && item.datas.title.includes(action.value) || (item.datas && item.datas.location.includes(action.value)
-                || item.datas && item.datas.location.includes(action.value) ))
-            
-        }))
-        case "SEARCH__EVENT_RESET":
-            return state.map((item) => ({
-                ...item,
-                isVisible: true
-            }))
+    case "SEARCH_EVENT":
+      return state.map((item) => ({
+        ...item,
+        isVisible: (item.datas && item.datas.title.toLowerCase().includes(action.value) || item.datas && item.datas.title.includes(action.value) || (item.datas && item.datas.location.includes(action.value)
+          || item.datas && item.datas.location.includes(action.value)))
 
-  }  
-  
+      }))
+    case "SEARCH__EVENT_RESET":
+      return state.map((item) => ({
+        ...item,
+        isVisible: true
+      }))
+
+  }
+
 };
 
 

@@ -13,7 +13,7 @@ class Dashboard extends Component {
     this.state = {
       search: '',
       page: 1,
-      limit: 2,
+      limit: 5,
     }
   }
   componentDidMount() {

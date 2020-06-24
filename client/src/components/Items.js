@@ -9,7 +9,7 @@ export default function Item(props) {
       <div className="col-md-3">
         <div className="card" style={{ width: " 15rem" }}>
           <Link to="/dashboard">
-            <img src="https://badoystudio.com/wp-content/uploads/2018/11/apa-itu-programmer-750x410.jpeg" className="card-img-top" alt="..." />
+            <img src={props.events && props.events.datas && props.events.datas.image || "https://badoystudio.com/wp-content/uploads/2018/11/apa-itu-programmer-750x410.jpeg"} className="card-img-top" alt="..." />
           </Link>
           <div className="card-body">
             <small>
@@ -41,7 +41,7 @@ export default function Item(props) {
               </div>
             </div>
           </ul>
-            <li className="list-group-item">"{props.events && props.events.datas && props.events.datas.note}"</li>
+          <li className="list-group-item">"{props.events && props.events.datas && props.events.datas.note}"</li>
         </div>
       </div>
     </div>
