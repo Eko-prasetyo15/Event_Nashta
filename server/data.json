@@ -1,0 +1,49 @@
+[
+  {
+    "id": 1592884193318,
+    "datas": {
+      "id": 1592884193147,
+      "title": "Meeting Project",
+      "location": "Soreang, Jawa Barat",
+      "date": "2020-06-10",
+      "members": [
+        "Amar",
+        "Tuti"
+      ],
+      "note": "Membawa Alat tulis dan laptop untuk presentasi",
+      "pictures": ""
+    }
+  },
+  {
+    "id": 1592887939326,
+    "datas": {
+      "id": 1592887939157,
+      "title": "Meeting Target",
+      "location": "Sukajadi, Bandung, Jawa Barat",
+      "date": "2020-06-25",
+      "members": [
+        "Jajang",
+        "Susan",
+        "Romi"
+      ],
+      "note": "membawa perlengkapan presentasi & tools untuk membuat analisis swot",
+      "pictures": ""
+    }
+  },
+  {
+    "id": 1592888999376,
+    "datas": {
+      "id": 1592888999253,
+      "title": "Briefing Project",
+      "location": "Rawamangun, Jakarta Timur",
+      "date": "2020-06-27",
+      "members": [
+        "Eko",
+        "Yasa",
+        "Bayu"
+      ],
+      "note": "Menentukan pembagian tugas frontend Developer",
+      "pictures": ""
+    }
+  }
+]
